@@ -1,8 +1,35 @@
 'use strict';
 
 // Complete this algo
+// const binarySearch = (array, target) => {
+// 	let binarySearch = [...array];
+// 	while (binarySearch.length > 0) {
+// 		let middle = Math.floor(binarySearch.length/2);
+// 		if (binarySearch[middle] === target) return true;
+// 		else if (binarySearch[middle] > target) {
+// 			binarySearch = binarySearch.slice(0, middle);
+// 		}
+// 		else {
+// 			binarySearch = binarySearch.slice(middle+1);
+// 		}
+// 	}
+// 	return false;
+// };
+
 const binarySearch = (array, target) => {
-	
+	let start = 0;
+	let end = array.length-1;
+	while (end-start > 0) {
+		let middle = Math.floor((end-start)/2);
+		if (array[middle] === target) return true;
+		else if (array[middle] > target) {
+			end = middle;
+		}
+		else {
+			start = middle;
+		}
+	}
+	return false;
 };
 
 /*
