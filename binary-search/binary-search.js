@@ -20,9 +20,12 @@ const binarySearch = (array, target) => {
 	let start = 0;
 	let end = array.length-1;
 	while (end-start > 0) {
-		let middle = Math.floor((end-start)/2);
+		console.log('start: ', start, " end: ", end);
+		let middle = start + Math.floor((end-start)/2);
+		if (start !== 0 && end-start < 2) middle = start + 1;
 		if (array[middle] === target) return true;
 		else if (array[middle] > target) {
+			if (end === middle) return false;
 			end = middle;
 		}
 		else {
